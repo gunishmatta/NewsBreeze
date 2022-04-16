@@ -1,13 +1,12 @@
 package com.gunish.newsbreeze.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.gunish.newsbreeze.R
 import com.gunish.newsbreeze.databinding.ActivityHomeBinding
 import com.gunish.newsbreeze.ui.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() {
 
     override val viewModel: HomeViewModel by viewModels()
