@@ -1,11 +1,14 @@
-package com.gunish.newsbreeze.data.repository.dao
+package com.gunish.newsbreeze.data.local.dao
 
 import androidx.room.*
+import com.gunish.newsbreeze.data.local.entity.News
+import com.gunish.newsbreeze.data.model.NewsResponse
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(news:News)
+    suspend fun insert(news: News)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertList(list: List<News>)
