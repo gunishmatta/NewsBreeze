@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface RemoteApiService {
-    @GET("v2/top-headlines?")
+    @GET("v2/top-headlines?country=in")
     suspend fun fetchNewsData(@Query("apiKey") key :String = CommonUtils.APIKEY):NewsResponse
     companion object {
         const val API_URL = "https://newsapi.org/"

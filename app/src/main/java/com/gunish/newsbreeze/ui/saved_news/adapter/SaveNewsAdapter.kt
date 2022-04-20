@@ -32,7 +32,7 @@ class SaveNewsAdapter (val context: Context) : RecyclerView.Adapter<SaveNewsAdap
         with(holder) {
             binding.textName.text = "#${model.Name}"
             binding.textTitle.text = model.Title
-            binding.textDate.text = CommonUtils.displayTime(model.Date)
+            binding.textDate.text = model.Date?.let { CommonUtils.displayTime(it) }
             Glide.with(context).load(model.Image).into(binding.imgSaveNews)
 
             binding.parentContainer.setOnClickListener {

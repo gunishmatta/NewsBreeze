@@ -54,7 +54,7 @@ class RepositoryImp @Inject constructor(
                             if (localNewsList.isNotEmpty()) {
                                 for (localNewsArticle in localNewsList) {
                                     if (localNewsArticle.Title == article.title) {
-                                        savedStatus = localNewsArticle.Saved
+                                        savedStatus = localNewsArticle.Saved!!
                                         isAlreadyInList = true
                                         break
                                     }
@@ -64,12 +64,12 @@ class RepositoryImp @Inject constructor(
                                 list.add(
                                     News(
                                         article.title,
-                                        article.description!!,
-                                        article.author!!,
+                                        article.description,
+                                        article.author,
                                         article.urlToImage.toString(),
-                                        article.url!!,
-                                        article.publishedAt!!,
-                                        article.content!!,
+                                        article.url,
+                                        article.publishedAt,
+                                        article.content,
                                         article.source.name,
                                         0
                                     )
@@ -78,12 +78,12 @@ class RepositoryImp @Inject constructor(
                                 list.add(
                                     News(
                                         article.title,
-                                        article.description!!,
-                                        article.author!!,
+                                        article.description,
+                                        article.author,
                                         article.urlToImage.toString(),
-                                        article.url!!,
-                                        article.publishedAt!!,
-                                        article.content!!,
+                                        article.url,
+                                        article.publishedAt,
+                                        article.content,
                                         article.source.name,
                                         savedStatus
                                     )

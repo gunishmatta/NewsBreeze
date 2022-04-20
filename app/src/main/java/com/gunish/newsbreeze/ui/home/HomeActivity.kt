@@ -35,7 +35,18 @@ class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(mViewBinding.root)
+        initAdapters()
+        setOnClickListener()
+        getNews()
+
     }
+
+    private fun initAdapters() {
+            mViewBinding.recyclerViewNews.layoutManager = LinearLayoutManager(this)
+            homeAdapter = HomeAdapter(this)
+            mViewBinding.recyclerViewNews.adapter = homeAdapter
+        }
+
 
     override fun getViewBinding(): ActivityHomeBinding = ActivityHomeBinding.inflate(layoutInflater)
 
@@ -119,9 +130,11 @@ class HomeActivity : BaseActivity<HomeViewModel,ActivityHomeBinding>() {
         if (!TextUtils.isEmpty(txt)) {
             val searchText = txt.toLowerCase()
             for (items in newsList) {
-                val video = items.Title.toLowerCase()
-                if (video.contains(searchText)) {
-                    tempList.add(items)
+                val video = items.Title?.toLowerCase()
+                if (video != null) {
+                    if (video.contains(searchText)) {
+                        tempList.add(items)
+                    }
                 }
             }
             homeAdapter?.setNews(tempList)

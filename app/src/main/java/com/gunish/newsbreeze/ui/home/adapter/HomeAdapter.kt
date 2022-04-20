@@ -29,7 +29,7 @@ class HomeAdapter(val context: Context) : RecyclerView.Adapter<HomeAdapter.ViewH
 
             binding.textTitle.text = model.Title
             binding.textContent.text = model.Description
-            binding.textDate.text = CommonUtils.displayTime(model.Date)
+            binding.textDate.text = model.Date?.let { CommonUtils.displayTime(it) }
             Glide.with(context).load(model.Image).into(binding.imgBanner)
             if (model.Saved == 0){
                 binding.btnSave.text = "Save"
