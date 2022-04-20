@@ -8,5 +8,5 @@ interface Repository {
     suspend fun getNews(): Flow<List<News>>
     suspend fun getNewsById(id: Int): Flow<News>
     suspend fun getSavedNews(): Flow<List<News>>
-
+    suspend fun update(news: News)
 }

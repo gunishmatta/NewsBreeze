@@ -22,6 +22,19 @@ object CommonUtils {
     }
 
 
+    fun displayTime(time: String): String {
+        try {
+            val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH)
+            val outputFormat = SimpleDateFormat("dd-MM-yyyy")
+            val date: Date = inputFormat.parse(time)
+            return outputFormat.format(date)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return ""
+    }
+
+
     fun isConnected():Boolean{
         var isConnectedWithWifi=false
         var isConnectedWithMobile=false

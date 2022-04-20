@@ -4,6 +4,8 @@ import com.gunish.newsbreeze.data.local.dao.NewsDao
 import com.gunish.newsbreeze.data.local.entity.News
 import com.gunish.newsbreeze.data.remote.RemoteApiService
 import com.gunish.newsbreeze.utils.CommonUtils
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -33,7 +35,7 @@ class RepositoryImp @Inject constructor(
     override suspend fun getSavedNews(): Flow<List<News>> = newsDao.getAllSavedNews()
 
 
-    suspend fun update(news: News)
+    override suspend fun update(news: News)
     {
         newsDao.update(news = news)
     }
